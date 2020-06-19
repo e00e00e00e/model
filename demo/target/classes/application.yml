@@ -1,0 +1,35 @@
+server:
+  port: 8070
+  tomcat:
+    max-threads: 6
+    min-spare-threads: 3
+    accept-count: 10
+    max-connections: 1000
+    connection-timeout: 10000
+
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    content-type: text/html
+    cache: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/mysql?serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: password
+    initial-size: 10
+    -active: 20
+    max-idle: 8
+    min-idle: 8
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
